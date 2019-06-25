@@ -9,6 +9,15 @@
     <version>1.0-SNAPSHOT</version>
 
 
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+
+    </dependencies>
 
 
     <build>

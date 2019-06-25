@@ -28,7 +28,7 @@ package java.io;
 import java.lang.annotation.Native;
 
 /**
- * Package-private abstract class for the local filesystem abstraction.
+ * 用于本地文件系统抽象的包私有抽象类.
  */
 
 abstract class FileSystem {
