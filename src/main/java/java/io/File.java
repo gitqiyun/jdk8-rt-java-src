@@ -38,7 +38,7 @@ import java.nio.file.FileSystems;
 import sun.security.action.GetPropertyAction;
 
 /**
- * An abstract representation of file and directory pathnames.
+ * 文件和目录路径名的抽象表示.
  *
  * <p> User interfaces and operating systems use system-dependent <em>pathname
  * strings</em> to name files and directories.  This class presents an
