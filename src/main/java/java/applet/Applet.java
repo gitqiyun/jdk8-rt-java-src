@@ -44,7 +44,7 @@ import javax.accessibility.*;
  * interface between applets and their environment.
  *
  * @author      Arthur van Hoff
- * @author      Chris Warth
+ * @author      Chris
  * @since
  */
 public class Applet extends Panel {
