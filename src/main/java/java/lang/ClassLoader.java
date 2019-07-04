@@ -653,9 +653,7 @@ public abstract class ClassLoader {
         if (!checkName(name))
             throw new NoClassDefFoundError("IllegalName: " + name);
 
-        // Note:  Checking logic in java.lang.invoke.MemberName.checkForTypeAlias
-        // relies on the fact that spoofing is impossible if a class has a name
-        // of the form "java.*"
+        //自定义的类包名不能以java开头，防止与jdk自带类重名加载到虚拟机中冲突
         if ((name != null) && name.startsWith("java.")) {
             throw new SecurityException
                 ("Prohibited package name: " +
