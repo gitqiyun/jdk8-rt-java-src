@@ -57,7 +57,7 @@ public class Object {
      * {@code Class<? extends Number> c = n.getClass(); }
      * </p>
      *
-     * @return The {@code Class} 对象，该对象表示运行时这个对象的类。
+     * @return The {@code Class} 对象，该对象表示运行时这个对象的Class。
      * @jls 15.8.2 Class Literals
      */
     public final native Class<?> getClass();

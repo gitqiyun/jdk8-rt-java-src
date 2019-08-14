@@ -120,7 +120,7 @@ import sun.reflect.misc.ReflectUtil;
  *
  * 理解：就是一个java.lang包下的一个类，作用是封装其他类的信息结构，私有构造器只能有虚拟机生成，相当于其他类的一面镜子，通过
  * 将类封装成Class以便更方便认识自己，专业术语就是反射，类加载机制就是将每个类的.class文件（.java文本文件编译后生成的二进制文件）
- * 最终生成每个类的Class对象加载到内存中，并不是目标对象。
+ * 最终生成每个类的Class对象加载到内存中，并不是目标对象，正如注释所述，一个Class实例表示正在运行的java类或接口。
  *
  */
 public final class Class<T> implements java.io.Serializable,
