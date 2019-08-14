@@ -26,9 +26,9 @@
 package java.lang;
 
 /**
- * Class {@code Object} is the root of the class hierarchy.
- * Every class has {@code Object} as a superclass. All objects,
- * including arrays, implement the methods of this class.
+ * Class {@code Object}是类层次结构的根。
+ * 每个类都有一个超类{@code Object}。所有对象,
+ * 包括数组，实现该类的方法。
  *
  * @author unascribed
  * @see java.lang.Class
@@ -57,8 +57,7 @@ public class Object {
      * {@code Class<? extends Number> c = n.getClass(); }
      * </p>
      *
-     * @return The {@code Class} object that represents the runtime
-     * class of this object.
+     * @return The {@code Class} 对象，该对象表示运行时这个对象的类。
      * @jls 15.8.2 Class Literals
      */
     public final native Class<?> getClass();
@@ -154,200 +153,191 @@ public class Object {
      * 浅复制，返回一个新的一样的实例，但是对象里面属性不是新实例。
      * 调用此方法的类必须实现Cloneable接口重写clone方法，所有数组都默认实现了此接口
      * 示例:
-     *class Person implements Cloneable {
-     *     String name;
-     *     int age;
-     *     Adress adress;
+     * class Person implements Cloneable {
+     * String name;
+     * int age;
+     * Adress adress;
      *
-     *     @Override
-     *     protected Object clone() throws CloneNotSupportedException {
-     *         return super.clone();
-     *     }
-     *
-     *     public Person(String name, int age, Adress adress) {
-     *         this.name = name;
-     *         this.age = age;
-     *         this.adress = adress;
-     *     }
-     *
-     *     public Adress getAdress() {
-     *         return adress;
-     *     }
-     *
-     *     public void setAdress(Adress adress) {
-     *         this.adress = adress;
-     *     }
-     *
-     *     public String getName() {
-     *         return name;
-     *     }
-     *
-     *     public void setName(String name) {
-     *         this.name = name;
-     *     }
-     *
-     *     public int getAge() {
-     *         return age;
-     *     }
-     *
-     *     public void setAge(int age) {
-     *         this.age = age;
-     *     }
-     *
-     *     @Override
-     *     public String toString() {
-     *         return "Person{" +
-     *                 "name='" + name + '\'' +
-     *                 ", age=" + age +
-     *                 ", adress=" + adress +
-     *                 '}';
-     *     }
+     * @Override protected Object clone() throws CloneNotSupportedException {
+     * return super.clone();
      * }
-     *
+     * <p>
+     * public Person(String name, int age, Adress adress) {
+     * this.name = name;
+     * this.age = age;
+     * this.adress = adress;
+     * }
+     * <p>
+     * public Adress getAdress() {
+     * return adress;
+     * }
+     * <p>
+     * public void setAdress(Adress adress) {
+     * this.adress = adress;
+     * }
+     * <p>
+     * public String getName() {
+     * return name;
+     * }
+     * <p>
+     * public void setName(String name) {
+     * this.name = name;
+     * }
+     * <p>
+     * public int getAge() {
+     * return age;
+     * }
+     * <p>
+     * public void setAge(int age) {
+     * this.age = age;
+     * }
+     * @Override public String toString() {
+     * return "Person{" +
+     * "name='" + name + '\'' +
+     * ", age=" + age +
+     * ", adress=" + adress +
+     * '}';
+     * }
+     * }
+     * <p>
      * class Adress {
-     *     String des;
-     *
-     *     public Adress(String des) {
-     *         this.des = des;
-     *     }
-     *
-     *     public String getDes() {
-     *         return des;
-     *     }
-     *
-     *     public void setDes(String des) {
-     *         this.des = des;
-     *     }
-     *
-     *     @Override
-     *     public String toString() {
-     *         return "Adress{" +
-     *                 "des='" + des + '\'' +
-     *                 '}';
-     *     }
+     * String des;
+     * <p>
+     * public Adress(String des) {
+     * this.des = des;
      * }
-     *public class TestMain {
-     *     public static void main(String[] args) throws CloneNotSupportedException {
-     *         Adress adress = new Adress("上海");
-     *         Person person1 = new Person("小明", 2, adress);
-     *         Person person2 = (Person) person1.clone();
-     *         System.out.println(person1.toString());
-     *         System.out.println(person2.toString());
-     *         person1.setName("小不点");
-     *         adress.setDes("beijing");
-     *         System.out.println(person1.toString());
-     *         System.out.println(person2.toString());
-     *     }
+     * <p>
+     * public String getDes() {
+     * return des;
      * }
-     *结果：
+     * <p>
+     * public void setDes(String des) {
+     * this.des = des;
+     * }
+     * @Override public String toString() {
+     * return "Adress{" +
+     * "des='" + des + '\'' +
+     * '}';
+     * }
+     * }
+     * public class TestMain {
+     * public static void main(String[] args) throws CloneNotSupportedException {
+     * Adress adress = new Adress("上海");
+     * Person person1 = new Person("小明", 2, adress);
+     * Person person2 = (Person) person1.clone();
+     * System.out.println(person1.toString());
+     * System.out.println(person2.toString());
+     * person1.setName("小不点");
+     * adress.setDes("beijing");
+     * System.out.println(person1.toString());
+     * System.out.println(person2.toString());
+     * }
+     * }
+     * 结果：
      * Person{name='小明', age=2, adress=Adress{des='上海'}}
      * Person{name='小明', age=2, adress=Adress{des='上海'}}
      * Person{name='小不点', age=2, adress=Adress{des='beijing'}}
      * Person{name='小明', age=2, adress=Adress{des='beijing'}}
      * 可知复制对象person1，person2中Adress指向都是外部的adress。当adress变化后它们中的adress都变化了。
-     *
+     * <p>
      * 深复制。
      * 可以通过序列化和反序列化的方式完全复制一份实例，实例里的实例也是新实例。
      * 示例：
-     *class DeepClone implements Serializable{
-     *     private static final long serialVersionUID = 1L;
-     *
-     *     //利用序列化和反序列化进行对象的深拷贝
-     *     protected Object deepClone() throws Exception{
-     *        //序列化
-     *         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-     *         ObjectOutputStream oos = new ObjectOutputStream(bos);
-     *
-     *         oos.writeObject(this);
-     *
-     *         //反序列化
-     *         ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-     *         ObjectInputStream ois = new ObjectInputStream(bis);
-     *
-     *         return ois.readObject();
-     *     }
+     * class DeepClone implements Serializable{
+     * private static final long serialVersionUID = 1L;
+     * <p>
+     * //利用序列化和反序列化进行对象的深拷贝
+     * protected Object deepClone() throws Exception{
+     * //序列化
+     * ByteArrayOutputStream bos = new ByteArrayOutputStream();
+     * ObjectOutputStream oos = new ObjectOutputStream(bos);
+     * <p>
+     * oos.writeObject(this);
+     * <p>
+     * //反序列化
+     * ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+     * ObjectInputStream ois = new ObjectInputStream(bis);
+     * <p>
+     * return ois.readObject();
      * }
-     *
+     * }
+     * <p>
      * class Person extends DeepClone {
-     *     String name;
-     *     int age;
-     *     Adress adress;
-     *
-     *
-     *     public Person(String name, int age, Adress adress) {
-     *         this.name = name;
-     *         this.age = age;
-     *         this.adress = adress;
-     *     }
-     *
-     *     public Adress getAdress() {
-     *         return adress;
-     *     }
-     *
-     *     public void setAdress(Adress adress) {
-     *         this.adress = adress;
-     *     }
-     *
-     *     public String getName() {
-     *         return name;
-     *     }
-     *
-     *     public void setName(String name) {
-     *         this.name = name;
-     *     }
-     *
-     *     public int getAge() {
-     *         return age;
-     *     }
-     *
-     *     public void setAge(int age) {
-     *         this.age = age;
-     *     }
-     *
-     *     @Override
-     *     public String toString() {
-     *         return "Person{" +
-     *                 "name='" + name + '\'' +
-     *                 ", age=" + age +
-     *                 ", adress=" + adress +
-     *                 '}';
-     *     }
+     * String name;
+     * int age;
+     * Adress adress;
+     * <p>
+     * <p>
+     * public Person(String name, int age, Adress adress) {
+     * this.name = name;
+     * this.age = age;
+     * this.adress = adress;
      * }
-     *
+     * <p>
+     * public Adress getAdress() {
+     * return adress;
+     * }
+     * <p>
+     * public void setAdress(Adress adress) {
+     * this.adress = adress;
+     * }
+     * <p>
+     * public String getName() {
+     * return name;
+     * }
+     * <p>
+     * public void setName(String name) {
+     * this.name = name;
+     * }
+     * <p>
+     * public int getAge() {
+     * return age;
+     * }
+     * <p>
+     * public void setAge(int age) {
+     * this.age = age;
+     * }
+     * @Override public String toString() {
+     * return "Person{" +
+     * "name='" + name + '\'' +
+     * ", age=" + age +
+     * ", adress=" + adress +
+     * '}';
+     * }
+     * }
+     * <p>
      * class Adress extends DeepClone {
-     *     String des;
-     *
-     *     public Adress(String des) {
-     *         this.des = des;
-     *     }
-     *
-     *     public String getDes() {
-     *         return des;
-     *     }
-     *
-     *     public void setDes(String des) {
-     *         this.des = des;
-     *     }
-     *
-     *     @Override
-     *     public String toString() {
-     *         return "Adress{" +
-     *                 "des='" + des + '\'' +
-     *                 '}';
-     *     }
+     * String des;
+     * <p>
+     * public Adress(String des) {
+     * this.des = des;
+     * }
+     * <p>
+     * public String getDes() {
+     * return des;
+     * }
+     * <p>
+     * public void setDes(String des) {
+     * this.des = des;
+     * }
+     * @Override public String toString() {
+     * return "Adress{" +
+     * "des='" + des + '\'' +
+     * '}';
+     * }
      * }
      * public class TestMain {
-     *          public static void main(String[] args) throws Exception {
-     *            Adress adress = new Adress("上海");
-     *              Person person1 = new Person("小明", 2, adress);
-     *               Person person2 =(Person)person1.deepClone();
-     *               System.out.println(person1.toString());
-     *               System.out.println(person2.toString());
-     *               person1.setName("小不点");
-     *               adress.setDes("beijing");
-     *               System.out.println(person1.toString());
-     *               System.out.println(person2.toString());
-     *           }
+     * public static void main(String[] args) throws Exception {
+     * Adress adress = new Adress("上海");
+     * Person person1 = new Person("小明", 2, adress);
+     * Person person2 =(Person)person1.deepClone();
+     * System.out.println(person1.toString());
+     * System.out.println(person2.toString());
+     * person1.setName("小不点");
+     * adress.setDes("beijing");
+     * System.out.println(person1.toString());
+     * System.out.println(person2.toString());
+     * }
      * }
      * 结果：
      * Person{name='小明', age=2, adress=Adress{des='上海'}}
@@ -355,7 +345,6 @@ public class Object {
      * Person{name='小不点', age=2, adress=Adress{des='beijing'}}
      * Person{name='小明', age=2, adress=Adress{des='上海'}}
      * 看出即使修改了adress，但person2也没有变化，说明里面成员变量即使是引用类型也是新的实例。
-     *
      */
     protected native Object clone() throws CloneNotSupportedException;
 
